@@ -1,0 +1,39 @@
+---
+title: "AFC"
+author: "ISE1"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r Librairies}
+library(haven)      
+library(tidyverse)   
+library(FactoMineR)   
+library(factoextra)   
+library(gplots)       
+library(corrplot)
+library(Factoshiny)
+```
+
+```{r data}
+data <- read_dta("D:/ISE1 docs/2ndSemestre/ADD1/PROJET/Donnees/base.dta")
+data <- as_factor(data)
+data <- data %>% select(c("aff30j","hhid","branch"))
+```
+
+```{r}
+data$aff30j <- replace(data$aff30j, is.na(data$aff30j), "pas malade")
+
+attach(data)
+
+# tab <- xtabs(hhid ~ aff30j + branch)
+# print(tab)
+
+# df <- as.data.frame.matrix(tab)
+# print(df)
+```
+
