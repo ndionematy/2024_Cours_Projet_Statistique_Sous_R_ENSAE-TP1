@@ -1,0 +1,3 @@
+"0","data <- read_dta(""D:/ISE1 docs/2ndSemestre/ADD1/PROJET/Donnees/base.dta"")"
+"0","data <- as_factor(data)"
+"0","data <- data %>% select(c(""aff30j"",""hhid"",""branch""))"
